@@ -5,7 +5,7 @@ FROM alpine:3.18
 RUN apk --no-cache add nginx openssl
 
 # Generate a self-signed SSL certificate (replace with your own certificates in a production environment)
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/private.key -out /etc/nginx/certificate.crt -subj "/C=US/ST=State/L=City/O=Organization/CN=mydomain.com"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/private.key -out /etc/nginx/certificate.crt -subj "/C=US/ST=State/L=City/O=42WOB/CN=mydomain.com"
 
 # Copy the custom nginx.conf file to the NGINX configuration directory
 COPY conf/nginx.conf /etc/nginx/nginx.conf
