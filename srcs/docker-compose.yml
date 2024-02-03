@@ -8,16 +8,15 @@ volumes:
   mariadb:
     driver_opts:
       type: none
-      device: /home/max/data/mariadb
+      device: /home/max/Coding/data/mariadb
       o: bind
   wordpress:
     driver_opts:
       type: none
-      device: /home/max/data/wordpress
+      device: /home/max/Coding/data/wordpress
       o: bind
 
 services:
-
   nginx:
     container_name: nginx
     image: nginx

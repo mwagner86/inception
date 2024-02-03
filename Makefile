@@ -6,7 +6,7 @@
 #    By: mwagner <mwagner@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 18:55:48 by mwagner           #+#    #+#              #
-#    Updated: 2024/02/02 19:11:16 by mwagner          ###   ########.fr        #
+#    Updated: 2024/02/03 14:14:43 by mwagner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ NAME           := inception
 DOCKER         := docker
 DOCKER_COMPOSE := srcs/docker-compose.yml
 
-all: up	add_unix_entry
-	mkdir -p /home/max/data/wordpress
-	mkdir -p /home/max/data/mariadb
+all: volume add_unix_entry up
 
 up:
 	${DOCKER} compose -f $(DOCKER_COMPOSE) up --build -d
@@ -26,6 +24,10 @@ down:
 
 prune:
 	${DOCKER} system prune --all --volumes
+
+volume:
+	mkdir -p /home/max/data/wordpress
+	mkdir -p /home/max/data/mariadb
 
 del_volume:
 	rm -rf /home/max/data/wordpress
