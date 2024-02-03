@@ -4,6 +4,9 @@ FROM alpine:3.18
 ARG DOMAIN_NAME
 ARG CERTS
 
+# Expose port
+EXPOSE 443
+
 # Install NGINX and OpenSSL
 RUN apk update && apk upgrade && apk add --no-cache nginx openssl sed
 
@@ -19,12 +22,10 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Copy the HTML file to the NGINX default web root
-COPY index.html /usr/share/nginx/html/
+# COPY index.html /usr/share/nginx/html/
 
 RUN sed -i "s/DOMAIN_NAME/$DOMAIN_NAME/g" /etc/nginx/nginx.conf \
 &&  sed -i "s%CERTS%$CERTS%g" /etc/nginx/nginx.conf
-# Expose port
-EXPOSE 443
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
