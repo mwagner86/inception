@@ -6,7 +6,7 @@
 #    By: mwagner <mwagner@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 18:55:48 by mwagner           #+#    #+#              #
-#    Updated: 2024/02/03 14:14:43 by mwagner          ###   ########.fr        #
+#    Updated: 2024/02/04 18:19:27 by mwagner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,13 @@ add_unix_entry:
 
 ls:
 	${DOCKER} ps -a
+
+eval_docker:
+	${DOCKER} stop $$(docker ps -qa); \
+	${DOCKER} rm $$(docker ps -qa); \
+	${DOCKER} rmi -f $$(docker images -qa); \
+	${DOCKER} volume rm $$(docker volume ls -q); \
+	${DOCKER} network rm $$(docker network ls -q) 2>/dev/null
 
 logs:
 	${DOCKER} compose -f $(DOCKER_COMPOSE) logs

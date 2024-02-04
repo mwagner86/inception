@@ -8,12 +8,12 @@ volumes:
   mariadb:
     driver_opts:
       type: none
-      device: /home/max/Coding/data/mariadb
+      device: /home/max/data/mariadb
       o: bind
   wordpress:
     driver_opts:
       type: none
-      device: /home/max/Coding/data/wordpress
+      device: /home/max/data/wordpress
       o: bind
 
 services:
