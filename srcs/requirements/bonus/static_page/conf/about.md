@@ -1,8 +1,7 @@
----
-title: "About"
-date: 2024-02-06T12:00:00+00:00
-draft: false
----
+
++++
+title = "About"
++++
 
 # About Me
 

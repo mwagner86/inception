@@ -1,11 +1,10 @@
-# home.md
 ---
-title: "home"
-date: 2024-02-06T12:00:00+00:00
+title: "Formatting"
+date: 2022-10-06T10:46:32Z
 draft: false
 ---
 
-# Welcome to My Sample Page
+# Welcome to Sample Page
 
 This is a **simple** Markdown page to showcase basic formatting. Let's include:
 
