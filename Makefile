@@ -6,7 +6,7 @@
 #    By: mwagner <mwagner@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 18:55:48 by mwagner           #+#    #+#              #
-#    Updated: 2024/02/04 18:19:27 by mwagner          ###   ########.fr        #
+#    Updated: 2024/02/05 14:01:17 by mwagner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,12 @@ prune:
 	${DOCKER} system prune --all --volumes
 
 volume:
-	mkdir -p /home/max/data/wordpress
-	mkdir -p /home/max/data/mariadb
+	sudo mkdir -p /home/max/data/wordpress
+	sudo mkdir -p /home/max/data/mariadb
 
 del_volume:
-	rm -rf /home/max/data/wordpress
-	rm -rf /home/max/data/mariadb
+	sudo rm -rf /home/max/data/wordpress
+	sudo rm -rf /home/max/data/mariadb
 
 add_unix_entry:
 	echo "127.0.0.1 mwagner.42.fr" >> /etc/hosts

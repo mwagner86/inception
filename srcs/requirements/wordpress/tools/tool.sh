@@ -20,9 +20,10 @@ else
     wp user create $WP_USER_NAME $WP_USER_MAIL --role='subscriber' --user_pass="$WP_USER_PW" --allow-root
     echo "WordPress user added"
 
-    # Install a new theme (Sydney) and activate it
-    wp theme install Sydney --activate --allow-root
-    echo "WordPress theme 'Sydney' installed and activated"
+    # Install a new theme (twentysixteen) and activate it
+    wp theme install twentysixteen --allow-root
+    wp theme activate twentysixteen --allow-root
+        echo "WordPress theme 'twentysixteen' installed and activated"
 fi
 
 # Execute the command passed as arguments (CMD in Dockerfile)
