@@ -1,0 +1,32 @@
+#baseURL = "https://mwagner.42.fr/static/"
+languageCode = "en-us"
+title = "Static Site for Inception"
+theme = "m10c"
+
+[params]
+  author = "Maximilian Wagner"
+  description = "A simple Hugo site showcasing my GitHub Inception repository and some information about me."
+  githubRepository = "https://github.com/mwagner86/inception"
+
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/mwagner86/"
+
+  description = "Static site for Inception"
+  copyright = "Copyright © 2024 Maximilian Wagner"
+  dark = "auto"
+  highlight = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 2

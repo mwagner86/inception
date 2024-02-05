@@ -59,3 +59,19 @@ services:
       - mariadb:/var/lib/mysql:rw
     networks:
       - inception_net
+
+# BONUS PART #
+
+  hugo:
+    container_name: hugo
+    build: ./requirements/bonus/hugo
+    restart: always
+    networks:
+      - inception_net
+
+  static_page:
+    container_name: static_page
+    build: ./requirements/bonus/static_page
+    restart: always
+    networks:
+      - inception_net

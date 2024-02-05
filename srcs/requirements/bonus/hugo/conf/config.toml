@@ -1,0 +1,8 @@
+#baseURL = "https://mwagner.42.fr/me"
+theme = "m10c"
+paginate = 8
+canonifyURLs = true
+
+[params]
+  author = "Maximilian Wagner"
+  description = "42 Inception Bonus Part: Hugo"
