@@ -1,15 +1,24 @@
 # Use Alpine Linux 3.18 as the base image
 FROM alpine:3.18
 
-# Expose port 3306 for redis
+# Expose port 6379 for Redis
 EXPOSE 6379
 
-RUN apk update \
-    && apk add --no-cache redis \
-    && rm -rf /var/cache/apk/*
+# Add redis user and group with current host user ID and group ID
+ARG GROUP_ID
+ARG USER_ID
+RUN addgroup -S -g ${GROUP_ID} redis \
+    && adduser -S -G redis -u ${USER_ID} redis \
+    && apk update && apk upgrade && apk add --update --no-cache \
+        redis \
+        shadow \
+    && rm -rf /var/cache/apk/* \
+    && chown -R redis:redis /run/redis/ /var/lib/redis
 
-COPY ./tools/redis.sh /tmp/redis.sh
+# Copy configuration file
+COPY conf/redis.conf /etc/
 
-EXPOSE 6379
+# Launch Redis server with the specified configuration file
+USER redis
 
-CMD ["sh", "/tmp/redis.sh"]
+CMD ["redis-server", "/etc/redis.conf"]
