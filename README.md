@@ -1,4 +1,3 @@
-````markdown
 # Inception-Projekt
 
 Dieses Projekt ist eine Einführung in die Systemadministration und Docker. Ziel ist es, eine Infrastruktur aus mehreren Docker-Containern (NGINX, WordPress, MariaDB und weiteren Bonus-Diensten) mithilfe von `docker-compose` zu erstellen und zu verwalten.
@@ -163,4 +162,3 @@ Das Projekt wird vollständig über das `Makefile` gesteuert. Hier sind die wich
 -   **Volumes**: Um die Daten dauerhaft zu speichern, werden benannte Volumes verwendet:
     -   `mariadb`: Bindet das Host-Verzeichnis `/home/max/data/mariadb` an `/var/lib/mysql` im MariaDB-Container.
     -   `wordpress`: Bindet `/home/max/data/wordpress` an `/var/www/wordpress` im WordPress- und NGINX-Container, um die WordPress-Dateien persistent zu machen und für NGINX zugänglich zu machen.
-````
